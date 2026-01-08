@@ -1,0 +1,64 @@
+final-sem/
+├─ pathfinder-backend/
+│  ├─ middleware/
+│  │  ├─ authMiddleware.js
+│  │  └─ errorHandler.js
+│  ├─ models/
+│  │  ├─ DecisionSession.js
+│  │  ├─ Goal.js
+│  │  ├─ LifeGoal.js
+│  │  ├─ User.js
+│  │  └─ UserProfile.js
+│  ├─ routes/
+│  │  ├─ decisions.js
+│  │  ├─ goals.js
+│  │  ├─ lifeGoals.js
+│  │  ├─ path.js
+│  │  └─ profile.js
+│  ├─ services/
+│  │  └─ pathRecommender.js
+│  ├─ utils/
+│  │  ├─ roadmapGenerator.js
+│  │  └─ roadmapGeneratorAI.js
+│  ├─ .env
+│  ├─ debug_hf_api.js
+│  ├─ debug_hf_multi.js
+│  ├─ debug_hf_router.js
+│  ├─ package.json
+│  ├─ pnpm-lock.yaml
+│  └─ server.js
+├─ pathfinder-frontend/
+│  ├─ public/
+│  │  └─ vite.svg
+│  ├─ src/
+│  │  ├─ api/
+│  │  │  └─ client.js
+│  │  ├─ assets/
+│  │  │  └─ react.svg
+│  │  ├─ components/
+│  │  │  └─ Navbar.jsx
+│  │  ├─ pages/
+│  │  │  ├─ AskPathfinder.jsx
+│  │  │  ├─ CreateGoal.jsx
+│  │  │  ├─ Dashboard.jsx
+│  │  │  ├─ GoalDetails.jsx
+│  │  │  ├─ LifeGoals.jsx
+│  │  │  ├─ Login.jsx
+│  │  │  ├─ ProfileSetup.jsx
+│  │  │  └─ Register.jsx
+│  │  ├─ App.css
+│  │  ├─ App.jsx
+│  │  ├─ index.css
+│  │  └─ main.jsx
+│  ├─ .gitignore
+│  ├─ eslint.config.js
+│  ├─ index.html
+│  ├─ package.json
+│  ├─ pnpm-lock.yaml
+│  ├─ postcss.config.js
+│  ├─ README.md
+│  ├─ tailwind.config.js
+│  └─ vite.config.js
+├─ debug_hf_api.js
+├─ fileTree.txt
+└─ README.md
