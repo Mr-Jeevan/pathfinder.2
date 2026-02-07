@@ -1,14 +1,19 @@
 import axios from 'axios';
 
-const client = axios.create({
-  baseURL: 'http://localhost:5000/api' || 'pathfinder-2-backend.onrender.com',
-});
+const RENDER_BASE_URL = 'https://pathfinder-bkend.onrender.com/api'; // Primary - your new Render link
+const LOCAL_BASE_URL = 'http://localhost:5000/api'; // Fallback - localhost
+
+// Primary client starts with Render as primary
+let client = axios.create({ baseURL: RENDER_BASE_URL });
+
+// Track current base URL index (0: Render primary, 1: local fallback)
+let currentBaseIndex = 0;
+const baseUrls = [RENDER_BASE_URL, LOCAL_BASE_URL];
 
 // Interceptor to attach JWT token to every request
 client.interceptors.request.use((config) => {
   const token = localStorage.getItem('token');
   if (token) {
-    // Ensuring headers exist before setting
     config.headers = config.headers || {};
     config.headers.Authorization = `Bearer ${token}`;
   }
@@ -17,7 +22,28 @@ client.interceptors.request.use((config) => {
   return Promise.reject(error);
 });
 
-/** * API Service Exports
+// Response interceptor for automatic failover
+client.interceptors.response.use(
+  (response) => response, // Success: pass through
+  async (error) => {
+    // If current server fails (e.g., network error, 5xx), switch to fallback
+    if (error.code === 'ERR_NETWORK' || (error.response && error.response.status >= 500)) {
+      currentBaseIndex = (currentBaseIndex + 1) % baseUrls.length; // Toggle to next
+      client.defaults.baseURL = baseUrls[currentBaseIndex];
+      
+      // Retry the original request with new baseURL
+      error.config._retryCount = (error.config._retryCount || 0) + 1;
+      if (error.config._retryCount < 2) { // Max 1 retry
+        console.log(`Switching to ${client.defaults.baseURL} and retrying...`);
+        return client(error.config);
+      }
+    }
+    return Promise.reject(error);
+  }
+);
+
+/**
+ * API Service Exports
  * Using these named exports ensures you are using the 'client' instance
  */
 
