@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const client = axios.create({
-  baseURL: 'http://localhost:5000/api',
+  baseURL: 'http://localhost:5000/api' || 'pathfinder-2-backend.onrender.com',
 });
 
 // Interceptor to attach JWT token to every request
