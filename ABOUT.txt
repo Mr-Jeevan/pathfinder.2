@@ -1,0 +1,87 @@
+# Pathfinder: AI-Driven Life Strategy & Career Architecture
+
+**Pathfinder** is an intelligent life-planning application designed to bridge the gap between long-term human ambition and daily tactical execution. Unlike standard to-do lists, Pathfinder uses AI to act as a strategic mentor, helping users define their "North Star" (Life Goals) and automatically generating detailed, step-by-step execution roadmaps to achieve them.
+
+It features a dedicated decision-making engine ("Ask Pathfinder") that analyzes your unique profile, constraints, and aspirations to provide personalized, data-backed advice for complex life choices.
+
+---
+
+## 🚀 Key Features
+
+### 1. 🗺️ AI-Generated Tactical Roadmaps
+Turn vague ideas into concrete plans. When you set a goal (e.g., *"Master Backend Engineering"*), Pathfinder's AI engine:
+- Breaks it down into chronological **Milestones**.
+- Estimates **Time-to-Completion** for each step.
+- Provides **Mentor Tips**, **Key Concepts**, and **Curated Resources**.
+- Tracks your progress visually on the Dashboard.
+
+### 2. 🌟 Life Ambitions Architecture
+Define your long-term vision (5-10+ year horizon) across key dimensions:
+- **Career**
+- **Health**
+- **Finance**
+- **Relationships**
+- **Personal Growth**
+
+These serve as the anchor for your tactical goals. The AI uses these ambitions to ensure every short-term action aligns with your long-term purpose.
+
+### 3. 🧠 "Ask Pathfinder" Decision Engine
+A sophisticated AI consultant for your dilemmas.
+- **Input:** Ask a complex question (e.g., *"Should I switch jobs now or wait?"*) and provide optional scenarios.
+- **Context:** The AI reads your *Profile*, *Active Goals*, and *Life Ambitions* before answering.
+- **Output:** A structured report containing:
+  - **Summary & Recommendation**
+  - **Reasoning** (Why this path fits *you*)
+  - **Immediate Actions**
+  - **Risk Analysis**
+
+### 4. 📊 Intelligent Dashboard
+- **Visual Progress Tracking:** Real-time progress bars for all active roadmaps.
+- **AI Suggestions Widget:** Proactively suggests new goals or focus areas based on your current profile gaps or stated interests.
+- **Life Goal Alignment:** See at a glance how your daily tasks contribute to your life's work.
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- **Framework:** React 19 (via Vite)
+- **Styling:** Tailwind CSS (Modern, dark-mode focused UI)
+- **State Management:** React Hooks & Context
+- **Routing:** React Router v7
+
+### Backend
+- **Runtime:** Node.js & Express
+- **Database:** MongoDB (Mongoose ODM)
+- **Authentication:** JWT & Bcrypt
+- **API Architecture:** RESTful
+
+### AI Core
+- **Inference:** Hugging Face Inference API
+- **Models:** Supports open weights models (e.g., `google/gemma-2-9b-it`)
+- **Integration:** OpenAI-compatible client structure for flexible model swapping.
+
+---
+
+## 📂 Project Structure
+
+### Backend (`pathfinder-backend/`)
+- `models/`: Mongoose schemas for `User`, `Goal` (Tactical), `LifeGoal` (Ambition), and `DecisionSession`.
+- `services/`: Core business logic, including `roadmapGeneratorAI.js` (AI Roadmap generation) and `pathRecommender.js`.
+- `routes/`: API endpoints for goals, profile management, and AI analysis.
+- `utils/`: Helper functions for parsing AI responses.
+
+### Frontend (`pathfinder-frontend/`)
+- `src/pages/`:
+  - `Dashboard.jsx`: Central hub for goals and AI suggestions.
+  - `AskPathfinder.jsx`: Interface for the decision engine.
+  - `LifeGoals.jsx`: Management of long-term ambitions.
+  - `CreateGoal.jsx`: Form to initialize new AI roadmaps.
+- `src/api/`: Centralized Axios client with interceptors.
+
+---
+
+## 🔮 Future Roadmap
+- **Gamification:** XP and Levels based on goal completion.
+- **Community Paths:** Share and clone successful roadmaps from other users.
+- **Calendar Integration:** Sync roadmap steps directly to Google/Outlook calendar.

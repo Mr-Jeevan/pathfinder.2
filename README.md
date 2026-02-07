@@ -74,9 +74,7 @@ final-sem/
     ```
 4.  Start the server:
     ```bash
-    npm start
-    # or for development with nodemon:
-    npm run dev
+    npm nodemon server.js
     ```
 
 ### 2. Frontend Setup
@@ -91,7 +89,7 @@ final-sem/
     ```
 3.  Start the development server:
     ```bash
-    npm run dev
+    npm dev
     ```
 4.  Open your browser at `http://localhost:5173`.
 
