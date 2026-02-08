@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/pathfinder-frontend/index.html" }
+  ]
+}
