@@ -60,3 +60,4 @@ export const updateProfile = (data) => client.post('/profile', data);
 export const getAiRecommendations = () => client.get('/path/recommend');
 
 export default client;
+
