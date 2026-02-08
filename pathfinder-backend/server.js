@@ -17,7 +17,8 @@ const errorHandler = require('./middleware/errorHandler'); // New Enhancement
 const app = express();
 
 // Standard Middleware
-app.use(cors({ origin: 'http://localhost:5173' }));
+CLIENT_URL = process.env.CLIENT_URL || 'http://localhost:5173';
+app.use(cors({ origin: CLIENT_URL }));
 app.use(express.json());
 
 // Database Connection
